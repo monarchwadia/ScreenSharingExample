@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script>
+	var lastRequest;
+
+	function getSnapshot() {
+		$.get("snapshot", null, function(data) {
+			elem = document.documentElement;
+			elem.innerHTML = data.html;
+			elem.setAttribute('style', data.css);
+		})
+	};
+
+	setInterval(getSnapshot, 100);
+
+	getSnapshot();
+
+	</script>
+
+</body>
+</html>
